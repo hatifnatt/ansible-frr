@@ -63,9 +63,13 @@ ipv6 route {{ dest }} {{ next_hop }}
 !
 {% if frr_ip_forwarding | default(False) %}
 ip forwarding
+{% else %}
+no ip forwarding
 {% endif %}
 {% if frr_ipv6_forwarding | default(False) %}
 ipv6 forwarding
+{% else %}
+no ipv6 forwarding
 {% endif %}
 !
 {% if frr_nht_resolve_default | default(False) %}
