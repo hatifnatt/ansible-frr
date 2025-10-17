@@ -12,7 +12,7 @@
 - name: Config | Configuring daemons
   ansible.builtin.template:
     backup: yes
-    src: etc/frr/daemons.j2
+    src: "{{ frr_daemons_template | default('etc/frr/daemons.j2') }}"
     dest: /etc/frr/daemons
     owner: root
     group: root
@@ -25,7 +25,7 @@
 - name: Config | Configuring debian.conf (debian version of daemons)
   ansible.builtin.template:
     backup: yes
-    src: etc/frr/debian.conf.j2
+    src: "{{ frr_debian_conf_template | default('etc/frr/debian.conf.j2') }}"
     dest: /etc/frr/debian.conf
     owner: root
     group: root
@@ -39,7 +39,7 @@
 - name: Config | Configuring FRR
   ansible.builtin.template:
     backup: yes
-    src: etc/frr/frr.conf.j2
+    src: "{{ frr_conf_template | default('etc/frr/frr.conf.j2') }}"
     dest: /etc/frr/frr.conf
     owner: frr
     group: frr
