@@ -18,6 +18,9 @@ frr_daemons_template: etc/frr/daemons.j2
 frr_debian_conf_template: etc/frr/debian.conf.j2
 frr_conf_template: etc/frr/frr.conf.j2
 
+# create or not /etc/frr/debian.conf config file
+frr_debian_conf_install: true
+
 # Define if we want to use traditional or datacenter FRR defaults
 # Official docs http://docs.frrouting.org/en/latest/basic.html#profiles
 # If undefined than current FRR default value is used implicitly (traditional)

@@ -34,7 +34,9 @@
   notify:
     - reload frr
     - start frr
-  when: ansible_os_family == "Debian"
+  when:
+    - ansible_os_family == "Debian"
+    - frr_debian_conf_install | bool
 
 - name: Config | Configuring FRR
   ansible.builtin.template:
